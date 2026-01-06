@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.cinebook.demo1.ui.controller.AdminReservationsController">
+
+    <center>
+        <HBox spacing="24" style="-fx-padding: 0;">
+            <VBox HBox.hgrow="ALWAYS" spacing="16">
+                <VBox spacing="12" styleClass="cb-card" style="-fx-padding: 24;">
+                    <Label text="Gestion des Réservations" styleClass="cb-h2"/>
+                    <TableView fx:id="reservationsTable" prefHeight="600">
+                        <columns>
+                            <TableColumn fx:id="colId" text="ID" prefWidth="250"/>
+                            <TableColumn fx:id="colUser" text="Utilisateur" prefWidth="140"/>
+                            <TableColumn fx:id="colSeance" text="Séance" prefWidth="260"/>
+                            <TableColumn fx:id="colPlaces" text="Places" prefWidth="160"/>
+                            <TableColumn fx:id="colDateRes" text="Date réservation" prefWidth="170"/>
+                        </columns>
+                    </TableView>
+                </VBox>
+            </VBox>
+
+            <VBox spacing="20" styleClass="cb-card" BorderPane.alignment="TOP_CENTER" style="-fx-padding: 24; -fx-min-width: 340;">
+                <Label text="Formulaire Réservation" styleClass="cb-h3"/>
+
+                <VBox spacing="16">
+                    <Label text="Utilisateur" styleClass="cb-body"/>
+                    <ComboBox fx:id="userCombo" promptText="Choisir utilisateur" prefWidth="300"/>
+
+                    <Label text="Séance" styleClass="cb-body"/>
+                    <ComboBox fx:id="seanceCombo" promptText="Choisir séance" prefWidth="300"/>
+
+                    <Label text="Places (ex: 1,2,3)" styleClass="cb-body"/>
+                    <TextField fx:id="placesField" promptText="1,2,3" prefWidth="300" styleClass="cb-textfield"/>
+                </VBox>
+
+                <VBox spacing="12">
+                    <HBox spacing="8">
+                        <Button text="➕ Créer" onAction="#onCreate" styleClass="cb-primary" HBox.hgrow="ALWAYS"/>
+                        <Button text="✏ Modifier" onAction="#onUpdate" styleClass="cb-primary" HBox.hgrow="ALWAYS"/>
+                        <Button text="🗑 Supprimer" onAction="#onDelete" styleClass="cb-danger" HBox.hgrow="ALWAYS"/>
+                    </HBox>
+
+                    <HBox spacing="8">
+                        <Button text="🔄 Rafraîchir" onAction="#onRefresh" styleClass="cb-ghost" HBox.hgrow="ALWAYS"/>
+                        <Button text="Vider" onAction="#onClear" styleClass="cb-ghost" HBox.hgrow="ALWAYS"/>
+                    </HBox>
+                </VBox>
+
+                <Label fx:id="messageLabel" wrapText="true" styleClass="cb-body" style="-fx-wrap-text: true;"/>
+            </VBox>
+        </HBox>
+    </center>
+
+</BorderPane>

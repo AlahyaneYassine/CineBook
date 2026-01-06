@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../.mvn"
+		},
+		{
+			"path": "../src"
+		},
+		{
+			"path": "../target"
+		}
+	]
+}

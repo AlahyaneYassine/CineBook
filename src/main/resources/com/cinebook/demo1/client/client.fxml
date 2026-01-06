@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.cinebook.demo1.ui.controller.ClientController"
+            styleClass="client-theme">
+
+    <!-- TOP HEADER -->
+    <top>
+        <VBox spacing="8" styleClass="header-client" BorderPane.alignment="CENTER">
+            <padding>
+                <Insets top="20" right="24" bottom="16" left="24"/>
+            </padding>
+
+            <HBox spacing="12" alignment="CENTER_LEFT">
+                <Label text="CineBook" styleClass="h2" style="-fx-text-fill: #e2e8f0;"/>
+                <Label text="CLIENT" styleClass="client-badge"/>
+            </HBox>
+
+            <Label fx:id="welcomeLabel" text="Bienvenue" styleClass="body"/>
+            <Separator/>
+        </VBox>
+    </top>
+
+    <!-- CENTER -->
+    <center>
+        <SplitPane dividerPositions="0.65" style="-fx-padding: 20;">
+
+            <!-- LEFT: séances -->
+            <VBox spacing="12" styleClass="card" style="-fx-padding: 20;">
+                <HBox spacing="10">
+                    <Button text="Rafraîchir" onAction="#onRefresh" styleClass="btn-primary"/>
+
+                </HBox>
+
+                <TableView fx:id="seancesTable" prefHeight="500">
+                    <columns>
+                        <TableColumn fx:id="colFilm" text="Film" prefWidth="220"/>
+                        <TableColumn fx:id="colSalle" text="Salle" prefWidth="120"/>
+                        <TableColumn fx:id="colDate" text="Date" prefWidth="120"/>
+                        <TableColumn fx:id="colHeure" text="Heure" prefWidth="120"/>
+                        <TableColumn fx:id="colTarif" text="Tarif" prefWidth="120"/>
+                        <TableColumn fx:id="colPlacesDispo" text="Places dispo" prefWidth="130"/>
+                    </columns>
+                </TableView>
+
+                <Label fx:id="messageLabel" text="" styleClass="error" style="-fx-wrap-text: true;"/>
+            </VBox>
+
+            <!-- RIGHT: réservation -->
+            <VBox spacing="16" styleClass="card" style="-fx-padding: 24;">
+                <Label text="Réserver une séance" styleClass="h3"/>
+
+                <VBox spacing="8">
+                    <Label text="Séance sélectionnée :" styleClass="body"/>
+                    <Label fx:id="selectedSeanceLabel" text="(aucune)" styleClass="body" style="-fx-font-weight: bold;"/>
+                </VBox>
+
+                <Separator/>
+
+                <VBox spacing="8">
+                    <Label text="Places (ex: 1,2,3) :" styleClass="body"/>
+                    <TextField fx:id="placesField" promptText="ex: 5,6,7"/>
+                </VBox>
+
+                <HBox spacing="10">
+                    <Button text="Réserver" onAction="#onReserve" styleClass="btn-primary"/>
+                    <Button text="Vider" onAction="#onClear" styleClass="btn-secondary"/>
+                </HBox>
+
+                <Separator/>
+
+                <VBox spacing="10">
+                    <Button text="Supprimer mon compte" onAction="#onDeleteAccount" styleClass="btn-danger" maxWidth="Infinity"/>
+                    <Button text="Déconnexion" onAction="#onLogout" styleClass="btn-secondary" maxWidth="Infinity"/>
+                </VBox>
+
+                <Label text="Astuce : clique une séance à gauche puis indique les places." styleClass="small muted"/>
+            </VBox>
+
+        </SplitPane>
+    </center>
+
+</BorderPane>

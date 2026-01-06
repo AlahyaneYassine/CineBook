@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.cinebook.demo1.ui.controller.ClientController"
+      spacing="20">
+
+    <SplitPane dividerPositions="0.65">
+
+        <!-- LEFT: séances -->
+        <VBox spacing="16" styleClass="cb-card" style="-fx-padding: 24;">
+            <HBox spacing="12">
+                <Button text="🔄 Rafraîchir" onAction="#onRefresh" styleClass="cb-primary"/>
+            </HBox>
+
+            <TableView fx:id="seancesTable" prefHeight="500">
+                <columns>
+                    <TableColumn fx:id="colFilm" text="Film" prefWidth="220"/>
+                    <TableColumn fx:id="colSalle" text="Salle" prefWidth="120"/>
+                    <TableColumn fx:id="colDate" text="Date" prefWidth="120"/>
+                    <TableColumn fx:id="colHeure" text="Heure" prefWidth="120"/>
+                    <TableColumn fx:id="colTarif" text="Tarif" prefWidth="120"/>
+                    <TableColumn fx:id="colPlacesDispo" text="Places dispo" prefWidth="130"/>
+                </columns>
+            </TableView>
+
+            <Label fx:id="messageLabel" text="" styleClass="error" style="-fx-wrap-text: true;"/>
+        </VBox>
+
+        <!-- RIGHT: réservation -->
+        <VBox spacing="20" styleClass="cb-card" style="-fx-padding: 24;">
+            <Label text="Réserver une séance" styleClass="cb-h3"/>
+
+            <VBox spacing="12">
+                <Label text="Séance sélectionnée :" styleClass="cb-body"/>
+                <Label fx:id="selectedSeanceLabel" text="(aucune)" styleClass="cb-body" style="-fx-font-weight: bold; -fx-text-fill: #60a5fa;"/>
+            </VBox>
+
+            <Separator/>
+
+            <VBox spacing="12">
+                <Label text="Places (ex: 1,2,3) :" styleClass="cb-body"/>
+                <TextField fx:id="placesField" promptText="ex: 5,6,7" styleClass="cb-textfield"/>
+            </VBox>
+
+            <HBox spacing="12">
+                <Button text="Réserver" onAction="#onReserve" styleClass="cb-primary" HBox.hgrow="ALWAYS"/>
+                <Button text="Vider" onAction="#onClear" styleClass="cb-ghost" HBox.hgrow="ALWAYS"/>
+            </HBox>
+
+            <Separator/>
+
+            <VBox spacing="12">
+                <Button text="Supprimer mon compte" onAction="#onDeleteAccount" styleClass="cb-danger" maxWidth="Infinity"/>
+            </VBox>
+
+            <Label text="💡 Astuce : clique une séance à gauche puis indique les places." styleClass="cb-small cb-muted"/>
+        </VBox>
+
+    </SplitPane>
+
+</VBox>
+

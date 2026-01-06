@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.cinebook.demo1.ui.controller.MyReservationsController"
+            style="-fx-padding: 24;">
+
+    <top>
+        <VBox spacing="12" styleClass="header-client" style="-fx-padding: 16 24;">
+            <HBox spacing="12" alignment="CENTER_LEFT">
+                <Label text="Mes Réservations" styleClass="h2"/>
+                <Label text="CLIENT" styleClass="client-badge"/>
+            </HBox>
+            <Separator/>
+        </VBox>
+    </top>
+
+    <center>
+        <VBox spacing="12" styleClass="card" style="-fx-padding: 20;">
+            <HBox spacing="10">
+                <Button text="Rafraîchir" onAction="#onRefresh" styleClass="btn-primary"/>
+                <Button text="Annuler réservation" onAction="#onCancel" styleClass="btn-danger"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Button text="Retour" onAction="#onBack" styleClass="btn-secondary"/>
+            </HBox>
+
+            <TableView fx:id="table" prefHeight="520">
+                <columns>
+                    <TableColumn fx:id="colFilm" text="Film" prefWidth="220"/>
+                    <TableColumn fx:id="colSalle" text="Salle" prefWidth="120"/>
+                    <TableColumn fx:id="colDate" text="Date" prefWidth="120"/>
+                    <TableColumn fx:id="colHeure" text="Heure" prefWidth="120"/>
+                    <TableColumn fx:id="colPlaces" text="Places" prefWidth="160"/>
+                    <TableColumn fx:id="colDateRes" text="Réservé le" prefWidth="180"/>
+                </columns>
+            </TableView>
+
+            <Label fx:id="messageLabel" text="" styleClass="error" style="-fx-wrap-text: true;"/>
+        </VBox>
+    </center>
+
+</BorderPane>

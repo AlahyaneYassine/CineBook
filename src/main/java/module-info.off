@@ -1,0 +1,21 @@
+module com.cinebook.demo1 {
+
+    /* JavaFX */
+    requires javafx.controls;
+    requires javafx.fxml;
+
+    /* Database */
+    requires java.sql;
+    requires com.mysql.cj;
+
+    /* UI libs */
+    requires org.controlsfx.controls;
+    requires org.kordamp.bootstrapfx.core;
+
+    /* FXML access */
+    opens com.cinebook.demo1.ui to javafx.fxml;
+    opens com.cinebook.demo1.ui.controller to javafx.fxml;
+
+    /* Public API */
+    exports com.cinebook.demo1.ui;
+}

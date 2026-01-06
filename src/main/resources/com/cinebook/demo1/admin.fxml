@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.cinebook.demo1.ui.controller.AdminController"
+            styleClass="admin-theme">
+
+    <!-- LEFT SIDEBAR -->
+    <left>
+        <VBox spacing="8" styleClass="sidebar-admin" style="-fx-padding: 20; -fx-min-width: 220;">
+            <VBox spacing="12" alignment="CENTER_LEFT">
+                <HBox spacing="8" alignment="CENTER_LEFT">
+                    <Label text="CineBook" styleClass="h2" style="-fx-text-fill: #e2e8f0;"/>
+                    <Label text="ADMIN" styleClass="admin-badge"/>
+                </HBox>
+            </VBox>
+
+            <Separator/>
+
+            <VBox spacing="4">
+                <Button text="🎬 Films" onAction="#onManageFilms" styleClass="admin-nav-button" maxWidth="Infinity"/>
+                <Button text="🏢 Salles" onAction="#onManageSalles" styleClass="admin-nav-button" maxWidth="Infinity"/>
+                <Button text="📅 Séances" onAction="#onManageSeances" styleClass="admin-nav-button" maxWidth="Infinity"/>
+                <Button text="🎟 Réservations" onAction="#onManageReservations" styleClass="admin-nav-button" maxWidth="Infinity"/>
+                <Button text="👤 Utilisateurs" onAction="#onManageUsers" styleClass="admin-nav-button" maxWidth="Infinity"/>
+            </VBox>
+
+            <Region VBox.vgrow="ALWAYS"/>
+
+            <Separator/>
+
+            <Button text="🚪 Déconnexion" onAction="#onLogout" styleClass="btn-danger" maxWidth="Infinity"/>
+        </VBox>
+    </left>
+
+    <!-- CENTER CONTENT -->
+    <center>
+        <StackPane fx:id="contentPane" style="-fx-padding: 40;" alignment="CENTER">
+            <VBox spacing="16" alignment="CENTER">
+                <Label text="Bienvenue dans le panneau d'administration" styleClass="h2"/>
+                <Label text="Choisis une section à gauche 👈" styleClass="body muted"/>
+            </VBox>
+        </StackPane>
+    </center>
+
+</BorderPane>

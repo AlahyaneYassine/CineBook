@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.cinebook.demo1.ui.controller.AdminSallesController">
+
+    <center>
+        <VBox spacing="24">
+            <VBox spacing="16" styleClass="cb-card" style="-fx-padding: 24;">
+                <HBox spacing="12" alignment="CENTER_LEFT">
+                    <Label text="Gestion des Salles" styleClass="cb-h2"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <Button text="🔄 Rafraîchir" onAction="#onRefresh" styleClass="cb-ghost"/>
+                </HBox>
+
+                <TableView fx:id="tableSalles" prefHeight="400">
+                    <columns>
+                        <TableColumn fx:id="colId" text="ID" prefWidth="220"/>
+                        <TableColumn fx:id="colCapacite" text="Capacité" prefWidth="120"/>
+                        <TableColumn fx:id="colType" text="Type" prefWidth="220"/>
+                    </columns>
+                </TableView>
+            </VBox>
+
+            <VBox spacing="16" styleClass="cb-card" style="-fx-padding: 24;">
+                <Label text="Formulaire Salle" styleClass="cb-h3"/>
+
+                <GridPane hgap="16" vgap="16">
+                    <columnConstraints>
+                        <ColumnConstraints percentWidth="25"/>
+                        <ColumnConstraints percentWidth="75"/>
+                    </columnConstraints>
+
+                    <Label text="ID :" GridPane.rowIndex="0" GridPane.columnIndex="0" styleClass="cb-body"/>
+                    <TextField fx:id="idField" promptText="ex: S-123ABC" GridPane.rowIndex="0" GridPane.columnIndex="1" styleClass="cb-textfield"/>
+
+                    <Label text="Capacité :" GridPane.rowIndex="1" GridPane.columnIndex="0" styleClass="cb-body"/>
+                    <TextField fx:id="capaciteField" promptText="ex: 120" GridPane.rowIndex="1" GridPane.columnIndex="1" styleClass="cb-textfield"/>
+
+                    <Label text="Type :" GridPane.rowIndex="2" GridPane.columnIndex="0" styleClass="cb-body"/>
+                    <TextField fx:id="typeField" promptText="2D / 3D / IMAX" GridPane.rowIndex="2" GridPane.columnIndex="1" styleClass="cb-textfield"/>
+                </GridPane>
+
+                <HBox spacing="12" alignment="CENTER_LEFT">
+                    <Button text="➕ Ajouter" onAction="#onCreate" styleClass="cb-primary"/>
+                    <Button text="✏ Modifier" onAction="#onUpdate" styleClass="cb-primary"/>
+                    <Button text="🗑 Supprimer" onAction="#onDelete" styleClass="cb-danger"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <Label fx:id="messageLabel" wrapText="true" styleClass="cb-body" style="-fx-wrap-text: true;"/>
+                </HBox>
+            </VBox>
+        </VBox>
+    </center>
+
+</BorderPane>

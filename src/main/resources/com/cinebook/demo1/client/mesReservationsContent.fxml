@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.cinebook.demo1.ui.controller.MyReservationsController"
+      spacing="20">
+
+    <VBox spacing="16" styleClass="cb-card" style="-fx-padding: 24;">
+        <HBox spacing="12">
+            <Button text="🔄 Rafraîchir" onAction="#onRefresh" styleClass="cb-primary"/>
+            <Button text="❌ Annuler réservation" onAction="#onCancel" styleClass="cb-danger"/>
+            <Region HBox.hgrow="ALWAYS"/>
+        </HBox>
+
+        <TableView fx:id="table" prefHeight="520">
+            <columns>
+                <TableColumn fx:id="colFilm" text="Film" prefWidth="220"/>
+                <TableColumn fx:id="colSalle" text="Salle" prefWidth="120"/>
+                <TableColumn fx:id="colDate" text="Date" prefWidth="120"/>
+                <TableColumn fx:id="colHeure" text="Heure" prefWidth="120"/>
+                <TableColumn fx:id="colPlaces" text="Places" prefWidth="160"/>
+                <TableColumn fx:id="colDateRes" text="Réservé le" prefWidth="180"/>
+            </columns>
+        </TableView>
+
+        <Label fx:id="messageLabel" text="" styleClass="error" style="-fx-wrap-text: true;"/>
+    </VBox>
+
+</VBox>
+

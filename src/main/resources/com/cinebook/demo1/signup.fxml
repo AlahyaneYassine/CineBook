@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="20"
+      xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.cinebook.demo1.ui.controller.SignupController"
+      styleClass="card"
+      style="-fx-padding: 40; -fx-max-width: 500;">
+
+    <padding>
+        <Insets top="30" right="30" bottom="30" left="30"/>
+    </padding>
+
+    <Label text="CineBook - Inscription" styleClass="h1"/>
+
+    <GridPane hgap="12" vgap="12" style="-fx-padding: 10 0;">
+        <columnConstraints>
+            <ColumnConstraints minWidth="120" prefWidth="140"/>
+            <ColumnConstraints hgrow="ALWAYS" minWidth="200"/>
+        </columnConstraints>
+
+        <Label text="Username :" GridPane.rowIndex="0" GridPane.columnIndex="0" styleClass="body"/>
+        <TextField fx:id="usernameField" promptText="ex: yassine" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+        <Label text="Mot de passe :" GridPane.rowIndex="1" GridPane.columnIndex="0" styleClass="body"/>
+        <PasswordField fx:id="passwordField" promptText="••••••••" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+        <Label text="Nom :" GridPane.rowIndex="2" GridPane.columnIndex="0" styleClass="body"/>
+        <TextField fx:id="nomField" promptText="Nom" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+        <Label text="Prénom :" GridPane.rowIndex="3" GridPane.columnIndex="0" styleClass="body"/>
+        <TextField fx:id="prenomField" promptText="Prénom" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+        <Label text="Email :" GridPane.rowIndex="4" GridPane.columnIndex="0" styleClass="body"/>
+        <TextField fx:id="emailField" promptText="ex: mail@gmail.com" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+    </GridPane>
+
+    <Label fx:id="messageLabel" text="" styleClass="error" style="-fx-wrap-text: true;"/>
+
+    <HBox spacing="10">
+        <Button text="S'inscrire" onAction="#onSignup" styleClass="btn-primary"/>
+        <Button text="Retour Login" onAction="#onBackToLogin" styleClass="btn-secondary"/>
+        <Region HBox.hgrow="ALWAYS"/>
+    </HBox>
+
+    <Label text="Astuce : le rôle sera automatiquement CLIENT." styleClass="small muted"/>
+
+</VBox>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.cinebook.demo1.ui.controller.ClientShellController"
+            styleClass="client-theme">
+
+    <!-- ================= TOP HEADER ================= -->
+    <top>
+        <HBox styleClass="cb-header cb-header-client"
+              alignment="CENTER_LEFT"
+              spacing="14">
+            <padding>
+                <Insets top="14" right="24" bottom="14" left="24"/>
+            </padding>
+
+            <!-- Logo block (premium) -->
+            <HBox spacing="12" alignment="CENTER_LEFT">
+                <Label text="🎬" style="-fx-font-size: 26px;"/>
+                <VBox spacing="1">
+                    <Label text="CineBook" styleClass="cb-h2"/>
+                    <Label text="Premium Cinema" styleClass="cb-small cb-muted"/>
+                </VBox>
+            </HBox>
+
+            <!-- Spacer -->
+            <Region HBox.hgrow="ALWAYS"/>
+
+            <!-- User Info -->
+            <HBox spacing="12" alignment="CENTER_RIGHT">
+                <VBox alignment="CENTER_RIGHT" spacing="2">
+                    <Label fx:id="userNameLabel" text="Client" styleClass="cb-body"/>
+                    <Label fx:id="userRoleLabel" text="CLIENT" styleClass="cb-badge-client"/>
+                </VBox>
+            </HBox>
+        </HBox>
+    </top>
+
+    <!-- ================= LEFT SIDEBAR ================= -->
+    <left>
+        <VBox styleClass="cb-sidebar cb-sidebar-client"
+              spacing="10"
+              prefWidth="260"
+              minWidth="260"
+              maxWidth="260">
+
+            <padding>
+                <Insets top="18" right="12" bottom="18" left="12"/>
+            </padding>
+
+            <!-- Small section title -->
+            <Label text="MENU" styleClass="cb-small cb-muted" style="-fx-padding: 0 10px;"/>
+
+            <VBox spacing="8" style="-fx-padding: 6px 0 0 0;">
+                <Button text="🎬  Séances"
+                        fx:id="seancesBtn"
+                        onAction="#onNavigateSeances"
+                        styleClass="cb-navbtn"
+                        maxWidth="Infinity"/>
+
+                <Button text="🎟  Mes Réservations"
+                        fx:id="reservationsBtn"
+                        onAction="#onNavigateReservations"
+                        styleClass="cb-navbtn"
+                        maxWidth="Infinity"/>
+
+                <Button text="👤  Mon Profil"
+                        fx:id="profileBtn"
+                        onAction="#onNavigateProfile"
+                        styleClass="cb-navbtn"
+                        maxWidth="Infinity"/>
+            </VBox>
+
+            <!-- Spacer -->
+            <Region VBox.vgrow="ALWAYS"/>
+
+            <Separator/>
+
+            <Button text="🚪  Déconnexion"
+                    onAction="#onLogout"
+                    styleClass="cb-danger"
+                    maxWidth="Infinity"/>
+        </VBox>
+    </left>
+
+    <!-- ================= CENTER CONTENT ================= -->
+    <center>
+        <StackPane fx:id="contentPane" style="-fx-background-color: transparent;">
+            <padding>
+                <Insets top="22" right="22" bottom="22" left="22"/>
+            </padding>
+
+            <!-- Empty state -->
+            <VBox alignment="CENTER"
+                  spacing="14"
+                  styleClass="cb-empty-state">
+
+                <Label text="🎬" styleClass="cb-empty-state-icon"/>
+                <Label text="Bienvenue ! Sélectionnez une section dans le menu"
+                       styleClass="cb-empty-state-text"/>
+            </VBox>
+        </StackPane>
+    </center>
+
+</BorderPane>

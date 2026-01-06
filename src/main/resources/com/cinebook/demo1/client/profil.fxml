@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.cinebook.demo1.ui.controller.ProfileController"
+            styleClass="client-theme">
+
+    <!-- HEADER (comme Séances / Mes Réservations) -->
+    <top>
+        <VBox spacing="10" styleClass="header-client">
+            <padding>
+                <Insets top="18" right="24" bottom="14" left="24"/>
+            </padding>
+
+            <HBox spacing="12" alignment="CENTER_LEFT">
+                <Label text="Mon Profil" styleClass="h2"/>
+                <Label text="CLIENT" styleClass="client-badge"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <!-- optionnel: bouton retour -->
+                <Button text="← Retour" onAction="#onBack" styleClass="btn-secondary"/>
+            </HBox>
+
+            <Label text="Mettez à jour vos informations (mot de passe optionnel)." styleClass="small muted"/>
+            <Separator/>
+        </VBox>
+    </top>
+
+    <!-- CONTENT -->
+    <center>
+        <VBox spacing="16">
+            <padding>
+                <Insets top="20" right="24" bottom="24" left="24"/>
+            </padding>
+
+            <!-- Card large (prend la place) -->
+            <VBox spacing="18" styleClass="card" style="-fx-padding: 24;">
+                <GridPane hgap="12" vgap="12">
+                    <columnConstraints>
+                        <ColumnConstraints minWidth="170" prefWidth="200"/>
+                        <ColumnConstraints hgrow="ALWAYS" minWidth="300"/>
+                    </columnConstraints>
+
+                    <Label text="Username :" GridPane.rowIndex="0" GridPane.columnIndex="0" styleClass="body"/>
+                    <TextField fx:id="usernameField" editable="false" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                    <Label text="Rôle :" GridPane.rowIndex="1" GridPane.columnIndex="0" styleClass="body"/>
+                    <TextField fx:id="roleField" editable="false" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                    <Label text="Nom :" GridPane.rowIndex="2" GridPane.columnIndex="0" styleClass="body"/>
+                    <TextField fx:id="nomField" promptText="Nom" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                    <Label text="Prénom :" GridPane.rowIndex="3" GridPane.columnIndex="0" styleClass="body"/>
+                    <TextField fx:id="prenomField" promptText="Prénom" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+                    <Label text="Email :" GridPane.rowIndex="4" GridPane.columnIndex="0" styleClass="body"/>
+                    <TextField fx:id="emailField" promptText="Email" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+
+                    <Separator GridPane.rowIndex="5" GridPane.columnIndex="0" GridPane.columnSpan="2"/>
+
+                    <Label text="Nouveau mot de passe :" GridPane.rowIndex="6" GridPane.columnIndex="0" styleClass="body"/>
+                    <PasswordField fx:id="newPasswordField" promptText="laisser vide pour ne pas changer"
+                                   GridPane.rowIndex="6" GridPane.columnIndex="1"/>
+
+                    <Label text="Confirmer mot de passe :" GridPane.rowIndex="7" GridPane.columnIndex="0" styleClass="body"/>
+                    <PasswordField fx:id="confirmPasswordField" promptText="confirmer"
+                                   GridPane.rowIndex="7" GridPane.columnIndex="1"/>
+                </GridPane>
+
+                <Label fx:id="messageLabel" text="" styleClass="error" style="-fx-wrap-text: true;"/>
+
+                <HBox spacing="10">
+                    <Button text="Enregistrer" onAction="#onSave" styleClass="btn-primary"/>
+                    <Button text="Annuler" onAction="#onCancel" styleClass="btn-secondary"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                </HBox>
+
+                <Label text="Astuce : laisse le mot de passe vide si tu ne veux pas le changer."
+                       styleClass="small muted"/>
+            </VBox>
+        </VBox>
+    </center>
+
+</BorderPane>

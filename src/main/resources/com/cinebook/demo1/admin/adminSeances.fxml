@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.cinebook.demo1.ui.controller.AdminSeancesController">
+
+    <center>
+        <SplitPane dividerPositions="0.65">
+
+            <!-- LEFT: TABLE -->
+            <VBox spacing="16" styleClass="cb-card" style="-fx-padding: 24;">
+                <HBox spacing="12">
+                    <Button text="🔄 Rafraîchir" onAction="#onRefresh" styleClass="cb-ghost"/>
+                    <Button text="🗑 Supprimer" onAction="#onDelete" styleClass="cb-danger"/>
+                </HBox>
+
+                <TableView fx:id="seancesTable" prefHeight="600">
+                    <columns>
+                        <TableColumn fx:id="colId" text="ID" prefWidth="160"/>
+                        <TableColumn fx:id="colFilm" text="Film" prefWidth="220"/>
+                        <TableColumn fx:id="colSalle" text="Salle" prefWidth="120"/>
+                        <TableColumn fx:id="colDate" text="Date" prefWidth="120"/>
+                        <TableColumn fx:id="colHeure" text="Heure" prefWidth="100"/>
+                        <TableColumn fx:id="colTarif" text="Tarif" prefWidth="90"/>
+                    </columns>
+                </TableView>
+
+                <Label fx:id="messageLabel" text="" styleClass="error" style="-fx-wrap-text: true;"/>
+            </VBox>
+
+            <!-- RIGHT: FORM -->
+            <VBox spacing="20" styleClass="cb-card" style="-fx-padding: 24;">
+                <Label text="Formulaire Séance" styleClass="cb-h3"/>
+
+                <GridPane hgap="16" vgap="16">
+                    <columnConstraints>
+                        <ColumnConstraints prefWidth="100"/>
+                        <ColumnConstraints prefWidth="240"/>
+                    </columnConstraints>
+
+                    <Label text="Film :" GridPane.rowIndex="0" GridPane.columnIndex="0" styleClass="cb-body"/>
+                    <ComboBox fx:id="filmCombo" promptText="Choisir un film" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                    <Label text="Salle :" GridPane.rowIndex="1" GridPane.columnIndex="0" styleClass="cb-body"/>
+                    <ComboBox fx:id="salleCombo" promptText="Choisir une salle" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                    <Label text="Date :" GridPane.rowIndex="2" GridPane.columnIndex="0" styleClass="cb-body"/>
+                    <DatePicker fx:id="datePicker" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                    <Label text="Heure :" GridPane.rowIndex="3" GridPane.columnIndex="0" styleClass="cb-body"/>
+                    <TextField fx:id="heureField" promptText="HH:mm" GridPane.rowIndex="3" GridPane.columnIndex="1" styleClass="cb-textfield"/>
+
+                    <Label text="Tarif :" GridPane.rowIndex="4" GridPane.columnIndex="0" styleClass="cb-body"/>
+                    <TextField fx:id="tarifField" promptText="ex: 45.00" GridPane.rowIndex="4" GridPane.columnIndex="1" styleClass="cb-textfield"/>
+                </GridPane>
+
+                <HBox spacing="12">
+                    <Button text="➕ Ajouter" onAction="#onCreate" styleClass="cb-primary" HBox.hgrow="ALWAYS"/>
+                    <Button text="✏ Modifier" onAction="#onUpdate" styleClass="cb-primary" HBox.hgrow="ALWAYS"/>
+                    <Button text="Vider" onAction="#onClear" styleClass="cb-ghost" HBox.hgrow="ALWAYS"/>
+                </HBox>
+
+                <Label text="💡 Astuce : clique une ligne dans la table pour remplir le formulaire." styleClass="cb-small cb-muted"/>
+            </VBox>
+
+        </SplitPane>
+    </center>
+
+</BorderPane>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.cinebook.demo1.ui.controller.AdminFilmsController">
+
+    <center>
+        <HBox spacing="24" style="-fx-padding: 0;">
+            <VBox HBox.hgrow="ALWAYS" spacing="16">
+                <VBox spacing="12" styleClass="cb-card" style="-fx-padding: 24;">
+                    <Label text="Gestion des Films" styleClass="cb-h2"/>
+                    <TableView fx:id="tableFilms" prefHeight="600">
+                        <columns>
+                            <TableColumn fx:id="colId" text="ID" prefWidth="240"/>
+                            <TableColumn fx:id="colTitre" text="Titre" prefWidth="200"/>
+                            <TableColumn fx:id="colGenre" text="Genre" prefWidth="160"/>
+                            <TableColumn fx:id="colDuree" text="Durée" prefWidth="90"/>
+                            <TableColumn fx:id="colAge" text="Age Min" prefWidth="90"/>
+                        </columns>
+                    </TableView>
+                </VBox>
+            </VBox>
+
+            <VBox spacing="16" styleClass="cb-card" style="-fx-padding: 24; -fx-min-width: 320;">
+                <Label text="Formulaire Film" styleClass="cb-h3"/>
+
+                <VBox spacing="16">
+                    <TextField fx:id="titreField" promptText="Titre" styleClass="cb-textfield"/>
+                    <TextField fx:id="genreField" promptText="Genre" styleClass="cb-textfield"/>
+                    <TextField fx:id="dureeField" promptText="Durée (minutes)" styleClass="cb-textfield"/>
+                    <TextField fx:id="ageField" promptText="Age minimum" styleClass="cb-textfield"/>
+                </VBox>
+
+                <VBox spacing="12">
+                    <HBox spacing="8">
+                        <Button text="➕ Ajouter" onAction="#onAdd" styleClass="cb-primary" HBox.hgrow="ALWAYS"/>
+                        <Button text="✏ Modifier" onAction="#onUpdate" styleClass="cb-primary" HBox.hgrow="ALWAYS"/>
+                    </HBox>
+
+                    <Button text="🗑 Supprimer" onAction="#onDelete" styleClass="cb-danger" maxWidth="Infinity"/>
+                    <Button text="🔄 Rafraîchir" onAction="#onRefresh" styleClass="cb-ghost" maxWidth="Infinity"/>
+                    <Button text="Vider" onAction="#onClear" styleClass="cb-ghost" maxWidth="Infinity"/>
+                </VBox>
+
+                <Label fx:id="messageLabel" styleClass="cb-body" wrapText="true" style="-fx-wrap-text: true;"/>
+            </VBox>
+        </HBox>
+    </center>
+
+</BorderPane>
