@@ -68,14 +68,7 @@ L'application finale se lance via **`ui.MainApp`** (interface JavaFX + MySQL). L
    ```bash
    ./mvnw clean javafx:run
    ```
-
-## Pistes d'amélioration
-
-- Les identifiants MySQL sont actuellement en dur dans `DB.java` (`root`/`root`). Le fichier `application.properties` existe mais n'est pas utilisé — le connecter permettrait d'externaliser la configuration.
-- Les mots de passe sont stockés et comparés en clair (`passwordHash` ne contient pas de hash malgré son nom) — à remplacer par un vrai hachage (BCrypt par exemple) avant toute utilisation en dehors d'un cadre pédagogique.
-- Aucun test n'est encore écrit malgré la dépendance JUnit 5 présente dans le `pom.xml`.
-- Le fichier `module-info.off` (désactivé) suggère une tentative de modularisation JPMS non aboutie — à nettoyer ou finaliser selon le besoin.
-
+   
 ## Auteur
 
 **Yassine Alahyane**
